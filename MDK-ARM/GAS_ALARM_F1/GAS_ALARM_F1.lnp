@@ -24,6 +24,7 @@
 "gas_alarm_f1\stm32f1xx_hal_tim_ex.o"
 "gas_alarm_f1\stm32f1xx_hal_uart.o"
 "gas_alarm_f1\system_stm32f1xx.o"
+"gas_alarm_f1\retarget_io.o"
 --library_type=microlib --strict --scatter "GAS_ALARM_F1\GAS_ALARM_F1.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

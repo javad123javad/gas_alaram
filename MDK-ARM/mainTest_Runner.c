@@ -2,10 +2,17 @@
 
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
+#include "stm32f1xx_hal.h"
+#include <stdint.h>
+#include <string.h>
 
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
+extern void testGASSensor(void);
+extern void testTempSensor(void);
+extern void testALARMSensor(void);
+extern void testDebugPort(void);
 
 
 /*=======Mock Management=====*/
@@ -35,11 +42,43 @@ void verifyTest(void)
   CMock_Verify();
 }
 
+/*=======Test Runner Used To Run Each Test=====*/
+static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE line_num)
+{
+    Unity.CurrentTestName = name;
+    Unity.CurrentTestLineNumber = line_num;
+#ifdef UNITY_USE_COMMAND_LINE_ARGS
+    if (!UnityTestMatches())
+        return;
+#endif
+    Unity.NumberOfTests++;
+    UNITY_CLR_DETAILS();
+    UNITY_EXEC_TIME_START();
+    CMock_Init();
+    if (TEST_PROTECT())
+    {
+        setUp();
+        func();
+    }
+    if (TEST_PROTECT())
+    {
+        tearDown();
+        CMock_Verify();
+    }
+    CMock_Destroy();
+    UNITY_EXEC_TIME_STOP();
+    UnityConcludeTest();
+}
+
 /*=======MAIN=====*/
  int main_test(void);
 int main_test(void)
 {
   UnityBegin("mainTest.c");
+  run_test(testGASSensor, "testGASSensor", 14);
+  run_test(testTempSensor, "testTempSensor", 18);
+  run_test(testALARMSensor, "testALARMSensor", 23);
+  run_test(testDebugPort, "testDebugPort", 28);
 
   return UnityEnd();
 }
