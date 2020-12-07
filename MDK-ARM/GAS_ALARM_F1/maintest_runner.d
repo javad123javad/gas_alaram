@@ -35,4 +35,7 @@ gas_alarm_f1\maintest_runner.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ha
 gas_alarm_f1\maintest_runner.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 gas_alarm_f1\maintest_runner.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 gas_alarm_f1\maintest_runner.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+gas_alarm_f1\maintest_runner.o: ext_port.h
+gas_alarm_f1\maintest_runner.o: JDefs.h
 gas_alarm_f1\maintest_runner.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+gas_alarm_f1\maintest_runner.o: alarm.h

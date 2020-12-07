@@ -3,6 +3,8 @@
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
 #include "stm32f1xx_hal.h"
+#include "ext_port.h"
+#include "alarm.h"
 #include <stdint.h>
 #include <string.h>
 
@@ -75,10 +77,10 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main_test(void)
 {
   UnityBegin("mainTest.c");
-  run_test(testGASSensor, "testGASSensor", 14);
-  run_test(testTempSensor, "testTempSensor", 18);
-  run_test(testALARMSensor, "testALARMSensor", 23);
-  run_test(testDebugPort, "testDebugPort", 28);
+  run_test(testGASSensor, "testGASSensor", 16);
+  run_test(testTempSensor, "testTempSensor", 20);
+  run_test(testALARMSensor, "testALARMSensor", 25);
+  run_test(testDebugPort, "testDebugPort", 47);
 
   return UnityEnd();
 }

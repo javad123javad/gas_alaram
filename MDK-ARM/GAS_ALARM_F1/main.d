@@ -30,3 +30,6 @@ gas_alarm_f1\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 gas_alarm_f1\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 gas_alarm_f1\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 gas_alarm_f1\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+gas_alarm_f1\main.o: ..\MDK-ARM\alarm.h
+gas_alarm_f1\main.o: ..\MDK-ARM\JDefs.h
+gas_alarm_f1\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
