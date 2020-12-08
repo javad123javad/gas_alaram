@@ -39,7 +39,10 @@ void testALARMSensor(void)
     fRet = genBeepError();
     TEST_ASSERT_EQUAL(RET_OK, fRet);
     */
-     fRet = genAlarm();
+    fRet = genAlarmOn();
+    TEST_ASSERT_EQUAL(RET_OK, fRet);
+    HAL_Delay(1000);
+    fRet = genAlarmOff();
     TEST_ASSERT_EQUAL(RET_OK, fRet);
     
 }

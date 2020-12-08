@@ -19,7 +19,8 @@ RET_STAT genBeep(const ALARM iBeepType, const ALARM_MODE iMode, const uint32_t i
 RET_STAT genBeepOK(void);
 RET_STAT genBeepFail(void);
 RET_STAT genBeepError(void);
-RET_STAT genAlarm(void);
+RET_STAT genAlarmOn(void);
+RET_STAT genAlarmOff(void);
 RET_STAT alarmSetPSC(uint32_t iPSC);
 
 #endif

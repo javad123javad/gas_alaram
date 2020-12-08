@@ -80,7 +80,7 @@ int main_test(void)
   run_test(testGASSensor, "testGASSensor", 16);
   run_test(testTempSensor, "testTempSensor", 20);
   run_test(testALARMSensor, "testALARMSensor", 25);
-  run_test(testDebugPort, "testDebugPort", 47);
+  run_test(testDebugPort, "testDebugPort", 50);
 
   return UnityEnd();
 }

@@ -202,16 +202,16 @@ void SysTick_Handler(void)
 /**
   * @brief This function handles TIM6 global interrupt.
   */
-    int gTone = 59;
+    int gTone = 99;
 
 void TIM6_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM6_IRQn 0 */
-    if(gTone>999)
-        gTone = 59;
+    if(gTone>399)
+        gTone = 39;
     alarmSetPSC(gTone);
     //genBeep(gTone, AL_MOD_SINGLE, 10);
-    gTone+=30;
+    gTone+=5;
     HAL_GPIO_TogglePin(TIM_PIN_TEST_GPIO_Port,TIM_PIN_TEST_Pin);
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);

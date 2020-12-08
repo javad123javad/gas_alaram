@@ -63,15 +63,24 @@ inline RET_STAT genBeepError(void)
     return fRet;
 }
 
-RET_STAT genAlarm(void)
+RET_STAT genAlarmOn(void)
 {
     RET_STAT fRet=RET_FAIL;
     extern TIM_HandleTypeDef htim6;
     HAL_TIM_Base_Start_IT(&htim6);
-    extern int gTone;
-        fRet = alarmOn();
+    fRet = alarmOn();
 
-   // genBeep(gTone, AL_MOD_SINGLE, 100);
+
+    return fRet;
+}
+
+RET_STAT genAlarmOff(void)
+{
+    RET_STAT fRet=RET_FAIL;
+    extern TIM_HandleTypeDef htim6;
+    
+    HAL_TIM_Base_Stop_IT(&htim6);
+    fRet = alarmOff();
 
     return fRet;
 }
