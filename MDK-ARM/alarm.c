@@ -1,7 +1,8 @@
 #include "alarm.h"
+
 static const    TIM_HandleTypeDef* gAlarmTimer;
 static          uint32_t           gAlarmChannel;
-
+uint32_t        gTone=39;
 
 /******************************************************************************/
 inline RET_STAT alarmSetPSC(uint32_t iPSC)

@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,6 +45,7 @@ ADC_HandleTypeDef hadc1;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim6;
+TIM_HandleTypeDef htim7;
 
 UART_HandleTypeDef huart1;
 
@@ -59,6 +60,7 @@ static void MX_ADC1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM6_Init(void);
+static void MX_TIM7_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -84,7 +86,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -100,17 +101,30 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM2_Init();
   MX_TIM6_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
 #ifdef _TDD_DBG_
 void main_test();
+
     main_test();
 #endif
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_ADCEx_Calibration_Start(&hadc1);
+  uint16_t adc = 0;
+  uint8_t str[32]={0};
   while (1)
   {
+      /*
+      HAL_ADC_Start(&hadc1);
+      HAL_ADC_PollForConversion(&hadc1,0xFF);
+      adc = HAL_ADC_GetValue(&hadc1);
+      sprintf(str, "ADC %f\r\n", (adc/4095.0)*3.3);
+      HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 1000);
+      HAL_Delay(1000);
+      */
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -285,9 +299,9 @@ static void MX_TIM6_Init(void)
 
   /* USER CODE END TIM6_Init 1 */
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 99;
+  htim6.Init.Prescaler = 999;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 1399;
+  htim6.Init.Period = 2399;
   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
@@ -302,6 +316,44 @@ static void MX_TIM6_Init(void)
   /* USER CODE BEGIN TIM6_Init 2 */
 
   /* USER CODE END TIM6_Init 2 */
+
+}
+
+/**
+  * @brief TIM7 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM7_Init(void)
+{
+
+  /* USER CODE BEGIN TIM7_Init 0 */
+
+  /* USER CODE END TIM7_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM7_Init 1 */
+
+  /* USER CODE END TIM7_Init 1 */
+  htim7.Instance = TIM7;
+  htim7.Init.Prescaler = 9999;
+  htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim7.Init.Period = 2399;
+  htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM7_Init 2 */
+
+  /* USER CODE END TIM7_Init 2 */
 
 }
 
@@ -353,14 +405,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(TIM_PIN_TEST_GPIO_Port, TIM_PIN_TEST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GAS_HEAT_EN_GPIO_Port, GAS_HEAT_EN_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : TIM_PIN_TEST_Pin */
-  GPIO_InitStruct.Pin = TIM_PIN_TEST_Pin;
+  /*Configure GPIO pin : GAS_HEAT_EN_Pin */
+  GPIO_InitStruct.Pin = GAS_HEAT_EN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(TIM_PIN_TEST_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GAS_HEAT_EN_GPIO_Port, &GPIO_InitStruct);
 
 }
 

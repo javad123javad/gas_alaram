@@ -39,3 +39,4 @@ gas_alarm_f1\maintest_runner.o: ext_port.h
 gas_alarm_f1\maintest_runner.o: JDefs.h
 gas_alarm_f1\maintest_runner.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 gas_alarm_f1\maintest_runner.o: alarm.h
+gas_alarm_f1\maintest_runner.o: gas.h

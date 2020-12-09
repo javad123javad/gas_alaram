@@ -23,6 +23,8 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "JDefs.h"
+#include "gas.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,7 +44,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -57,7 +58,10 @@
 
 /* External variables --------------------------------------------------------*/
 extern TIM_HandleTypeDef htim6;
+extern TIM_HandleTypeDef htim7;
 /* USER CODE BEGIN EV */
+extern uint32_t gTone;
+extern uint8_t gHeatTimer;
 
 /* USER CODE END EV */
 
@@ -202,8 +206,6 @@ void SysTick_Handler(void)
 /**
   * @brief This function handles TIM6 global interrupt.
   */
-    int gTone = 99;
-
 void TIM6_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM6_IRQn 0 */
@@ -212,12 +214,39 @@ void TIM6_IRQHandler(void)
     alarmSetPSC(gTone);
     //genBeep(gTone, AL_MOD_SINGLE, 10);
     gTone+=5;
-    HAL_GPIO_TogglePin(TIM_PIN_TEST_GPIO_Port,TIM_PIN_TEST_Pin);
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_IRQn 1 */
 
   /* USER CODE END TIM6_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM7 global interrupt.
+  */
+void TIM7_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM7_IRQn 0 */
+    gHeatTimer++;
+    if(gHeatTimer == GAS_HEATER_ON_TIME)
+    {
+        gasHeatOff();
+    }
+    else if (gHeatTimer == GAS_HEATER_OFF_TIME)
+    {
+        gasHeatOn();
+        gHeatTimer = 0;
+        // Read AdcVal Heare
+        gasRead();
+        
+    }
+   
+
+  /* USER CODE END TIM7_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim7);
+  /* USER CODE BEGIN TIM7_IRQn 1 */
+
+  /* USER CODE END TIM7_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

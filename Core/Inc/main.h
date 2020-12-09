@@ -61,8 +61,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define TIM_PIN_TEST_Pin GPIO_PIN_14
-#define TIM_PIN_TEST_GPIO_Port GPIOG
+#define GAS_HEAT_EN_Pin GPIO_PIN_14
+#define GAS_HEAT_EN_GPIO_Port GPIOG
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

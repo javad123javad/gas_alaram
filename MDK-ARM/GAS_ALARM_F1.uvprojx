@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;     ../Drivers/STM32F1xx_HAL_Driver/Inc;     ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;     ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;     ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;       ../Drivers/STM32F1xx_HAL_Driver/Inc;       ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;       ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;       ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -417,6 +417,16 @@
               <FileName>alarm.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\alarm.h</FilePath>
+            </File>
+            <File>
+              <FileName>gas.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gas.c</FilePath>
+            </File>
+            <File>
+              <FileName>gas.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gas.h</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>
@@ -836,7 +846,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2V8M.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -1115,6 +1125,16 @@
               <FileName>alarm.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\alarm.h</FilePath>
+            </File>
+            <File>
+              <FileName>gas.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gas.c</FilePath>
+            </File>
+            <File>
+              <FileName>gas.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gas.h</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>

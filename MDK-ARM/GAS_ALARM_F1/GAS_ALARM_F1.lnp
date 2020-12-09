@@ -2,6 +2,7 @@
 "gas_alarm_f1\startup_stm32f103xe.o"
 "gas_alarm_f1\ext_port.o"
 "gas_alarm_f1\alarm.o"
+"gas_alarm_f1\gas.o"
 "gas_alarm_f1\main.o"
 "gas_alarm_f1\stm32f1xx_it.o"
 "gas_alarm_f1\stm32f1xx_hal_msp.o"

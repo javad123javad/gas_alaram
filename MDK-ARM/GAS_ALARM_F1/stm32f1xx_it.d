@@ -34,3 +34,4 @@ gas_alarm_f1\stm32f1xx_it.o: ..\MDK-ARM\alarm.h
 gas_alarm_f1\stm32f1xx_it.o: ..\MDK-ARM\JDefs.h
 gas_alarm_f1\stm32f1xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 gas_alarm_f1\stm32f1xx_it.o: ../Core/Inc/stm32f1xx_it.h
+gas_alarm_f1\stm32f1xx_it.o: ..\MDK-ARM\gas.h
