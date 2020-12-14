@@ -60,8 +60,10 @@
 extern TIM_HandleTypeDef htim6;
 extern TIM_HandleTypeDef htim7;
 /* USER CODE BEGIN EV */
-extern uint32_t gTone;
-extern uint8_t gHeatTimer;
+extern uint32_t     gTone;
+extern uint8_t      gHeatTimer;
+extern uint32_t     gGasVal;
+extern uint8_t      gValidRead;
 
 /* USER CODE END EV */
 
@@ -237,8 +239,8 @@ void TIM7_IRQHandler(void)
         gasHeatOn();
         gHeatTimer = 0;
         // Read AdcVal Heare
-        gasRead();
-        
+        gasRead(&gGasVal);
+        gValidRead = 1;
     }
    
 

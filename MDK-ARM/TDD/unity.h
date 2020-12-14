@@ -17,6 +17,8 @@
 extern "C"
 {
 #endif
+#include "ext_port.h"
+  #define UNITY_OUTPUT_CHAR(a) (void)sendChar(a)
 
 #include "unity_internals.h"
 

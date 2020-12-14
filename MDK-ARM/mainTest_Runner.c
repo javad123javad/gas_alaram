@@ -6,6 +6,7 @@
 #include "ext_port.h"
 #include "alarm.h"
 #include "gas.h"
+#include "LCD.h"
 #include <stdint.h>
 #include <string.h>
 
@@ -15,7 +16,9 @@ extern void tearDown(void);
 extern void testGASSensor(void);
 extern void testTempSensor(void);
 extern void testALARMSensor(void);
+extern void testLCD(void);
 extern void testDebugPort(void);
+extern void testMainLoop(void);
 
 
 /*=======Mock Management=====*/
@@ -78,10 +81,12 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main_test(void)
 {
   UnityBegin("mainTest.c");
-  run_test(testGASSensor, "testGASSensor", 17);
-  run_test(testTempSensor, "testTempSensor", 37);
-  run_test(testALARMSensor, "testALARMSensor", 42);
-  run_test(testDebugPort, "testDebugPort", 69);
+  run_test(testGASSensor, "testGASSensor", 30);
+  run_test(testTempSensor, "testTempSensor", 49);
+  run_test(testALARMSensor, "testALARMSensor", 54);
+  run_test(testLCD, "testLCD", 79);
+  run_test(testDebugPort, "testDebugPort", 93);
+  run_test(testMainLoop, "testMainLoop", 99);
 
   return UnityEnd();
 }

@@ -88,13 +88,13 @@ static void UnityPrintChar(const char* pch)
     else if (*pch == 13)
     {
         UNITY_OUTPUT_CHAR('\\');
-        UNITY_OUTPUT_CHAR('r');
+        UNITY_OUTPUT_CHAR('\r');
     }
     /* write escaped line feeds */
     else if (*pch == 10)
     {
         UNITY_OUTPUT_CHAR('\\');
-        UNITY_OUTPUT_CHAR('n');
+        UNITY_OUTPUT_CHAR('\n');
     }
     /* unprintable characters are shown as codes */
     else
@@ -130,7 +130,6 @@ static UNITY_UINT UnityPrintAnsiEscapeString(const char* string)
 void UnityPrint(const char* string)
 {
     const char* pch = string;
-
     if (pch != NULL)
     {
         while (*pch)
@@ -146,6 +145,7 @@ void UnityPrint(const char* string)
             UnityPrintChar(pch);
             pch++;
         }
+
     }
 }
 /*-----------------------------------------------*/

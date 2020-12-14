@@ -26,15 +26,11 @@ RET_STAT    gasInit(ADC_HandleTypeDef * iGasADC, TIM_HandleTypeDef * iHeaterTime
     return fRet;
 }
 
-RET_STAT    gasRead(void)
+RET_STAT    gasRead(uint32_t *o_val)
 {
     RET_STAT fRet = RET_FAIL;
-    uint16_t adc = 0;
-  uint8_t str[32]={0};
     HAL_ADC_Start(&hadc1);
-      HAL_ADC_PollForConversion(&hadc1,0xFF);
-      adc = HAL_ADC_GetValue(&hadc1);
-      sprintf(str, "ADC %f\r\n", (adc/4095.0)*3.3);
-      HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 1000);
+    fRet = HAL_ADC_PollForConversion(&hadc1,0xFF);
+    *o_val = HAL_ADC_GetValue(&hadc1);
     return fRet;
 }

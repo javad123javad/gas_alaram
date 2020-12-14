@@ -61,8 +61,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define GAS_HEAT_EN_Pin GPIO_PIN_14
-#define GAS_HEAT_EN_GPIO_Port GPIOG
+#define GAS_HEAT_EN_Pin GPIO_PIN_3
+#define GAS_HEAT_EN_GPIO_Port GPIOA
+#define PIN1_Pin GPIO_PIN_4
+#define PIN1_GPIO_Port GPIOA
+#define PIN2_Pin GPIO_PIN_5
+#define PIN2_GPIO_Port GPIOA
+#define LED_SYS_OK_Pin GPIO_PIN_6
+#define LED_SYS_OK_GPIO_Port GPIOA
+#define LED_SYS_ERR_Pin GPIO_PIN_7
+#define LED_SYS_ERR_GPIO_Port GPIOA
+#define LCD_SCL_Pin GPIO_PIN_6
+#define LCD_SCL_GPIO_Port GPIOB
+#define LCD_SDA_Pin GPIO_PIN_7
+#define LCD_SDA_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

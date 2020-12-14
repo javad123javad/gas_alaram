@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.30.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Javad Microsoft, Microsoft, LIC=JDA30-BS97A-VJR6J-UICEW-X0RQ1-SJNPF
+License Information: Javad Microsoft, Microsoft, LIC=3UUGK-ZSU7G-C0NN2-9G73P-1VVYG-5D17Z
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.30.0.0
@@ -22,25 +22,21 @@ Dialog DLL:      TCM.DLL V1.42.0.0
  
 <h2>Project:</h2>
 D:\Workspace\Electronic\STM32\Projects\GAS_ALARM\GAS_ALARM_F1\MDK-ARM\GAS_ALARM_F1.uvprojx
-Project File Date:  12/09/2020
+Project File Date:  12/13/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'GAS_ALARM_Test'
 Before Build - User command #1: ruby D:\Workspace\Electronic\Unity\Unity\auto\generate_test_runner.rb mainTest.c
-compiling gas.c...
-gas.c(37): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-        sprintf(str, "ADC %f\r\n", (adc/4095.0)*3.3);
-gas.c(38): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
-        HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 1000);
-gas.c: 2 warnings, 0 errors
-compiling stm32f1xx_it.c...
 compiling mainTest.c...
+mainTest.c(128): warning:  #223-D: function "sprintf" declared implicitly
+              sprintf((char*)tmpBuff, "Val:%u", gGasVal);
+mainTest.c: 1 warning, 0 errors
 compiling mainTest_Runner.c...
 linking...
-Program Size: Code=13932 RO-data=808 RW-data=40 ZI-data=1552  
+Program Size: Code=15462 RO-data=814 RW-data=44 ZI-data=1652  
 FromELF: creating hex file...
-"GAS_ALARM_F1\GAS_ALARM_F1.axf" - 0 Error(s), 2 Warning(s).
+"GAS_ALARM_F1\GAS_ALARM_F1.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -85,7 +81,7 @@ Package Vendor: Keil
 
    * Component: Keil.ARM Compiler::Compiler:I/O:TTY:Breakpoint:1.2.0
       Source file:   Source\retarget_io.c
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

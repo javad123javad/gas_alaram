@@ -3,7 +3,7 @@
 
 #include "JDefs.h"
 
-
+void sendChar(char ch);
 HAL_StatusTypeDef sendStr(const uint8_t *iStr);
 
 #endif
